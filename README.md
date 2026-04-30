@@ -11,7 +11,7 @@ If you're seeing this, you've probably already done this step. Congrats!
 npx sv create my-app
 ```
 
-To recreate this project with the same configuration:
+To recreate this project with the same asdfasdfconfiguration:
 
 ```sh
 # recreate this project
