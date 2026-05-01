@@ -2,6 +2,7 @@
    import chichipop from '$lib/assets/chichi-pop.png'
    import catup from '$lib/assets/catup.png'
    import catdown from '$lib/assets/catdown.png'
+   import Coin from '$lib/Coin.svelte';
     let counter = $state(0)
     let coins = $state(0)
 
@@ -36,7 +37,7 @@
 <div class="justify-center flex items-center flex-col  bg-cover h-screen bg-center  " style="
 background-image: url({chichipop}); ">
 
-
+  <Coin/>
 
   
   <div class="bg-white rounded-4xl text-4xl w-2xl h-[50px]">
