@@ -5,6 +5,7 @@
 	import temple from '$lib/assets/templw.png'
 	import catup from '$lib/assets/catup.png'
 	import logo from '$lib/assets/logo.jpg'
+	import lamb from '$lib/assets/Lamp.png'
 </script>
 
 
@@ -28,7 +29,8 @@ background-image: url({chichipop}); ">
 		<img src="{catup}" alt="component" class="h-[90%] -ml-10">
 	</div>
 
-	<div class="absolute right-0">
-		<img src="{temple}" alt="component" class="w-250  -ml-10">
+	
+	<div class="absolute left-0 top-0">
+		<img src="{lamb}" alt="component" class="w-150  -ml-10">
 	</div>
 </div>
