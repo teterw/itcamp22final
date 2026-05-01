@@ -1,6 +1,6 @@
 <script>
     import yen from "$lib/assets/yen.png";
-    check = false
+    let check = false
     if (check == false){
         localStorage.setItem("newvalue",0)
         localStorage.setItem("currentvalue",0)

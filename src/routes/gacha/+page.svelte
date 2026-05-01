@@ -97,9 +97,8 @@
 
 	function betcalc(value, betamount) {
 		score = Math.round(betamount * value[result % content.length]);
-		localStorage.setItem("currentvalue",currentvalue + newvalue)
+		localStorage.setItem("currentvalue",currentvalue + score)
 		alert(score)
-		
 	}
 </script>
 
