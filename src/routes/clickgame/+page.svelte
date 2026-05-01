@@ -16,32 +16,38 @@
       currentIndex = (currentIndex + 1) % images.length;
 
       
-      if (counter %100 === 0 ) {
+      if (counter % 100 === 0 ) {
        coins += 10;
+      //  localStorage.setItem('coins', ...)
       }
     }
     const increment =()=>{ 
         counter +=1
-        toggleImage() 
+        toggleImage()
+        if (counter >= 100){
+          counter = 0
+        }
     }
 
 </script>
 
 
 
-<div class="justify-center flex items-center  bg-cover h-screen bg-center  " style="
+<div class="justify-center flex items-center flex-col  bg-cover h-screen bg-center  " style="
 background-image: url({chichipop}); ">
 
 
-<div class="absolute bottom-0 ">
+
   
-  <div class="box">
-  <p>score = {counter}</p>
+  <div class="bg-white rounded-4xl text-4xl w-2xl h-[50px]">
   
-</div>
+  <div style="width: {counter}%;" class="bg-red-500 h-[50px] w-full rounded-4xl" ></div>
+   <p>score = {counter}</p>
+  </div>
 
 
 
+<!-- 
 <style>
 .box  {
   position:clearInterval;
@@ -49,15 +55,14 @@ background-image: url({chichipop}); ">
   padding:10px;
   border-radius:50px;
   font-size:50px;
-  
-
+  width: 
 }
-</style>
+</style> -->
 
 
 
   
-  <div  class="cursor-pointer">
+  <div  class="cursor-pointer absolute bottom-0">
     <img class="h-[400px] w-[400px]" alt=""  src ='{images[currentIndex]}'  onclick={increment}/>
   </div>
   <!-- <a href="/"  >
@@ -65,5 +70,3 @@ background-image: url({chichipop}); ">
 </div>
 
 
-
-</div>
