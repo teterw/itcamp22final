@@ -23,9 +23,9 @@
       }
     }
     const increment =()=>{ 
-        counter +=10
+        counter +=1
         toggleImage()
-        if (counter >= 100){
+        if (counter >= 10){
           counter = 0
         }
     }
@@ -42,8 +42,8 @@ background-image: url({chichipop}); ">
   
   <div class="bg-white rounded-4xl text-4xl w-2xl h-[50px]">
   
-  <div style="width: {counter}%;" class="bg-red-500 h-[50px] w-full rounded-4xl" ></div>
-   <p>score = {counter}</p>
+  <div style="width: {counter*10}%;" class="bg-red-500 h-[50px] w-full rounded-4xl" ></div>
+   <p>score = {counter} / 10</p>
   </div>
 
   <a href="/"><button class="bg-red-500 px-10 py-3 rounded-xl text-white font-bold text-2xl absolute left-0 bottom-0 cursor-pointer m-10">Exit</button></a>
