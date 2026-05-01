@@ -1,8 +1,4 @@
 <script>
-setTimeout(function() {
-    location.reload();
-}, 5000);
-
 	let r=500;
 	let cntSlices=14;
 	let content=[
@@ -72,7 +68,7 @@ setTimeout(function() {
     }
 	color(content,colorsave)
 	console.log(colorsave)
-
+	
 
 
 
@@ -83,7 +79,7 @@ setTimeout(function() {
 <div class="grid justify-center">
 
 
-<button onclick={()=>{rotationInc=15+5*Math.random();spinning=true;}}>Spin</button>
+<button onclick={()=>{rotationInc=20+5*Math.random();spinning=true;}}>Spin</button>
 
 
 <svg viewbox="0 0 {r*2+outerWidth*2} {r*2+outerWidth*2}" width={r+outerWidth*2} height={r+outerWidth*2}>
