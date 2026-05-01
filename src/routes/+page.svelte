@@ -1,23 +1,35 @@
 <script>
+setTimeout(function() {
+    location.reload();
+}, 5000);
+
 	let r=500;
-	let cntSlices=9;
+	let cntSlices=14;
 	let content=[
-		"x4",
-		"x3",
-		"x3",
-		"x2",
-		"x2",
-		"x2",
-		"w",
+		"x1.5",
+		"x0.7",
 		"x1",
-		"white",
+		"x3",
+		"x1",
+		"x2",
+		"x1",
+		"x2",
+		"x1",
+		"x1.5",
+		"x0",
+		"x1",
+		"x0.5",
+		'x2'
 	];
+	let colorsave=[];
+	let len = content.length;
 	let rotation=$state(0);
 	let rotationInc=$state(0);
 	let contentRadius = r*4/5;
 	let spinning = $state(false);
 	let outerWidth=17;
-	
+
+
 	let sliceAngle=$derived(3.142*2/cntSlices);
 	let sliceDegrees=$derived(360/cntSlices|0);
 	let result=$derived((((270-rotation)/sliceDegrees)+cntSlices|0)%cntSlices);
@@ -33,21 +45,50 @@
 			}
 		}
 	},10);
-    function color(){
-        let color = $state(content[idx%content.length])
-        console.log(color)
+    function color(content,colorsave){
+        for (let i = 0; i < len;i++){
+			if (content[i] == "x0"){
+				colorsave.push("#00714e")
+			}
+			else if (content[i] == "x0.5"){
+				colorsave.push("#007c88")
+			}
+			else if (content[i] == "x0.7"){
+				colorsave.push("#0083c5")
+			}
+			else if (content[i] == "x1"){
+				colorsave.push("#0082f3")
+			}
+			else if (content[i] == "x1.5"){
+				colorsave.push("#6573ff")
+			}
+			else if (content[i] == "x2"){
+				colorsave.push("#d051eb")
+			}
+			else if (content[i] == "x3"){
+				colorsave.push("#ff00b2")
+			}
+		}
     }
+	color(content,colorsave)
+	console.log(colorsave)
+
+
 
 
 
 </script>
 
 <!-- <button on:click={()=>{rotation+=sliceDegrees/2}}>Inc</button> -->
-<button onclick={()=>{rotationInc=15+5*Math.random();spinning=true;}}>Spin</button><br>{rotation|0} {rotationInc*100|0} {content[result%content.length]} ({result})<br>
+<div class="grid justify-center">
+
+
+<button onclick={()=>{rotationInc=15+5*Math.random();spinning=true;}}>Spin</button>
+
 
 <svg viewbox="0 0 {r*2+outerWidth*2} {r*2+outerWidth*2}" width={r+outerWidth*2} height={r+outerWidth*2}>
 	<g transform="translate({r+outerWidth} {r+outerWidth}) rotate({rotation}) translate({-r} {-r}) ">
-	<circle r={r} cx={r} cy={r} fill="lightgray" stroke-width={outerWidth} stroke="red"/>
+	<circle r={r} cx={r} cy={r} fill="lightgray" stroke-width={outerWidth} stroke="gray"/>
 		{#each Array(cntSlices) as angle, idx}
 			{@const x=Math.cos(sliceAngle*idx)}
 			{@const y=Math.sin(sliceAngle*idx)}
@@ -61,11 +102,12 @@
 					`A ${r} ${r} 0 0 1 ${x2*r+r} ${y2*r+r}`, // Arc   
 					`L ${r} ${r}`, // Line
 				].join(' ')}
-			<path d={path} fill={"white"}/>}
+			<path d={path} fill={colorsave[idx%colorsave.length]}/>}
 			<g transform="translate({tx} {ty}) rotate({contentRotation}) translate({-tx} {-ty}) ">
-				<text font-size={24} x={tx} y={ty} text-anchor ="middle">{content[idx%content.length]}</text>}
+				<text font-size={70} x={tx} y={ty} text-anchor ="middle">{content[idx%content.length]}</text>}
 			</g>
 		{/each}
 	</g>
 </svg>
 <br>
+</div>
