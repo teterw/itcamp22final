@@ -45,6 +45,7 @@ background-image: url({chichipop}); ">
    <p>score = {counter}</p>
   </div>
 
+  <a href="/"><button class="bg-red-500 px-10 py-3 rounded-xl text-white font-bold text-2xl absolute left-0 bottom-0 cursor-pointer m-10">Exit</button></a>
 
 
 <!-- 
