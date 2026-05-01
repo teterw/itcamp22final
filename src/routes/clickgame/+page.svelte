@@ -17,13 +17,13 @@
       currentIndex = (currentIndex + 1) % images.length;
 
       
-      if (counter % 100 === 0 ) {
+      if (counter % 10 === 0 ) {
        coins += 10;
       //  localStorage.setItem('coins', ...)
       }
     }
     const increment =()=>{ 
-        counter +=1
+        counter +=10
         toggleImage()
         if (counter >= 100){
           counter = 0
